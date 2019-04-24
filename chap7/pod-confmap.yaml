@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fortune-env-from-configmap
+spec:
+  containers:
+  - image: luksa/fortune:env
+    name: fortuneapp
+    env:
+    - name: INTERVAL
+      valueFrom: 
+        configMapKeyRef: 
+          name: newmap
+          key: interval 
+    - name: INTER
+      valueFrom:
+        configMapKeyRef:
+          name: newmap
+          key: inter

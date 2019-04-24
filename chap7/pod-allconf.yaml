@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: fortune-env-from-configmap-all
+spec:
+  containers:
+  - image: luksa/fortune:env
+    name: fortuneapp
+    envFrom:
+    - configMapRef: 
+        name: newmap
