@@ -1,0 +1,22 @@
+apiVersion: v1
+kind: ReplicationController
+metadata:
+  name: kube
+spec:
+  replicas: 3
+  selector:
+    app: kube
+  template:
+    metadata:
+      labels:
+        app: kube
+        env: ppd
+    spec:
+      containers:
+      - name: kube
+        image: luksa/kubia
+        ports:
+        - containerPort: 8080
+          name: http
+        - containerPort: 8443
+          name: https

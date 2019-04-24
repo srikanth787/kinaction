@@ -1,0 +1,13 @@
+apiVersion: extensions/v1beta1
+kind: Ingress
+metadata:
+  name: kube-ing
+spec:
+  rules:
+  - host: kube.example.com
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: kube-np
+          servicePort: 80
