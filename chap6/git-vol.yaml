@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: git-vol-pod
+spec:
+  containers:
+  - image: nginx:alpine                  
+    name: git-vol
+    volumeMounts:                          
+    - name: html                           
+      mountPath: /usr/share/nginx/html     
+    ports:
+    - containerPort: 80
+      protocol: TCP
+  volumes:                                 
+  - name: html                             
+    gitRepo:
+      repository: https://github.com/srikanth787/kinaction.git
+      revision: master
